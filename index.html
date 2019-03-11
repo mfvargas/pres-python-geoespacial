@@ -1,0 +1,907 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Introducción al sistema operativo Linux</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+    	<style type="text/css">
+        	.column {
+            	float: left;
+            	width: 50%;
+        	}
+        	/* Clear floats after the columns */
+        	.row:after {
+            	content: "";
+            	display: table;
+            	clear: both;
+        	}
+    	</style> 
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Introducción al sistema operativo Linux</h2>
+					<br>
+  					<small>Manuel Vargas (<a href="mailto:mfvargas@gmail.com">mfvargas@gmail.com</a>)</small>
+					<br>
+					<small>Febrero de 2019</small>
+				</section>
+				<section id="linux">
+					<h3>El sistema operativo Linux</h3>
+					<div class="row" >
+						<div class="column" style="width:35%">
+							<figure>
+								<img src="img/tux.png" alt="Tux" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+								<figcaption><small>Tux, mascota de Linux.</small></figcaption>
+							</figure>
+						</div>
+						<div class="column" style="width:65%">
+							<div style="text-align:left">
+								<li>Sistema tipo <a href="https://en.wikipedia.org/wiki/Unix">Unix</a>, considerado uno de los ejemplos más destacados de <strong>software libre y código abierto</strong>.</li>
+								<li>Su núcleo ha sido desarrollado con los aportes de más de <a href="https://www.linuxfoundation.org/blog/2017/10/2017-linux-kernel-report-highlights-developers-roles-accelerating-pace-change/">15000 programadores</a>.</li>
+								<li>Es utilizado en plataformas que van desde <a href="https://www.theregister.co.uk/2018/05/17/asteroidos_linux_for_smartwatch/">relojes inteligentes</a> hasta <a href="https://www.zdnet.com/article/linux-totally-dominates-supercomputers/">supercomputadores</a>.</li>
+							</div>	
+						</div>
+					</div>			
+				</section>
+				<section id="gnu">
+					<h3>El proyecto GNU</h3>
+					<div class="row" >
+						<div class="column" style="width:35%">
+							<figure>
+								<img src="img/richard_stallman.jpg" alt="Richard Stallman" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+								<figcaption><small>Richard Stallman</small></figcaption>
+							</figure>
+						</div>
+						<div class="column" style="width:65%">
+							<div style="text-align:left">
+								<li>En 1983, Richard Stallman inició el proyecto <a href="https://www.gnu.org/">GNU</a> con el objetivo de crear un <em>"sistema de software compatible con Unix y compuesto completamente de software libre"</em>.</li>
+								<li>GNU desarrolló editores, compiladores, líneas de comandos, interfaces gráficas y otras herramientas.</li>
+							</div>	
+						</div>
+					</div>			
+				</section>
+				<section id="linux-kernel">
+					<h3>El kernel de Linux</h3>
+					<div class="row" >
+						<div class="column" style="width:35%">
+							<figure>
+								<img src="img/linus_torvalds.jpg" alt="Linux Torvalds" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+								<figcaption><small>Linus Torvalds</small></figcaption>
+							</figure>
+						</div>
+						<div class="column" style="width:65%">
+							<div style="text-align:left">
+								<li>En 1991, Linus Torvalds programó un <em>kernel</em> (núcleo) de sistema operativo que luego se denominó <a href="https://www.kernel.org/">kernel de Linux</a>.</li>
+								<li>En 1992, le asignó una licencia <a href="https://www.gnu.org/licenses/gpl.html">GPL</a> de GNU, la cual permite su libre uso, modificación y distribución.</li>
+							</div>	
+						</div>
+					</div>			
+				</section>
+				<section id="gnu-linux">
+					<h3>GNU/Linux</h3>
+					<div style="text-align:left">
+						El kernel de Linux y las herramientas de GNU fueron integrados en el sistema operativo Linux, también llamado <a href="https://www.gnu.org/gnu/linux-and-gnu.en.html">GNU/Linux</a>.
+					</div>
+					<figure>
+						<img src="img/linux-components.png" alt="Arquitectura de Linux" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+						<figcaption><small>Arquitectura de GNU/Linux</small></figcaption>
+					</figure>			
+				</section>
+				<section id="linux-distros">
+					<h3>Distribuciones ("distros") de Linux</h3>
+					<div class="row" >
+						<div class="column" style="width:35%">
+							<figure>
+								<img src="img/linux-distros.png" alt="Evolución de las distribuciones de Linux" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+								<figcaption><small><a href="https://en.wikipedia.org/wiki/Linux_distribution#/media/File:Linux_Distribution_Timeline.svg">Evolución de las distribuciones de Linux</a></small></figcaption>
+							</figure>
+						</div>
+						<div class="column" style="width:65%">
+							<div style="text-align:left">
+								<li>Distribuciones de software que incluyen el kernel de Linux y una colección de aplicaciones seleccionadas para usos particulares (ej. científicos, empresariales, servidores).</li>
+								<li>Hay alrededor de <a href="https://distrowatch.com/">600 <em>distros</em> (cerca de 500 con desarrollo activo)</a>.</li>
+							</div>
+						</div>
+					</div>			
+				</section>	
+				<section id="linux-distros-debian">
+					<h3>"Distros" populares</h3>
+					<div style="text-align:left">
+						<li><a href="https://www.debian.org/">Debian</a> (1993): muy estable y leal a los principios de software libre. Mantenida por voluntarios.
+							<ul>
+								<li><a href="https://www.ubuntu.com/">Ubuntu</a> (2004): muy popular y enfocada en la usabilidad. Mantenida por Canonical Ltd.</li>
+								<li><a href="https://linuxmint.com/">Linux Mint</a> (2006): hay una versión que desciende directamente de Debian y otra de Ubuntu. Mantenida por voluntarios.</li>
+								<li><a href="https://www.kali.org/">Kali Linux</a> (2013): orientada a <a href="https://es.wikipedia.org/wiki/An%C3%A1lisis_forense_digital">análisis forense digital</a> y <a href="https://es.wikipedia.org/wiki/Examen_de_penetraci%C3%B3n">pruebas de penetración</a>. Mantenida por una organización de <a href="https://es.wikipedia.org/wiki/Sombrero_blanco_(seguridad_inform%C3%A1tica)"> sombrero blanco</a>.</li>
+							</ul>
+						</li>
+					</div>
+				</section>
+				<section id="linux-distros-slackware">
+					<h3>"Distros" populares</h3>
+					<div style="text-align:left">
+						<li><a href="http://www.slackware.com/">Slackware</a> (1993): la más antigua de las distribuciones activas. Muy simplista y <a href="https://en.wikipedia.org/wiki/Unix-like">Unix-like</a>. Mantenida por su autor Patrick Volkerding.
+							<ul>
+								<li><a href="https://www.opensuse.org/">SUSE Linux Enterprise Server</a> (1994): es una de las primeras distros comerciales. Mantenida por la compañía SUSE.</li>
+								<li><a href="https://www.opensuse.org/">openSUSE</a> (2005): muy popular y amigable. Mantenida por la compañía SUSE y por voluntarios.</li>
+							</ul>
+						</li>
+					</div>
+				</section>
+				<section id="linux-distros-redhat">
+					<h3>"Distros" populares</h3>
+					<div style="text-align:left">
+						<li><a href="https://www.redhat.com/">Red Hat Linux</a> (1995): distribución comercial de la compañía Red Hat descontinuada en 2004.
+							<ul>
+								<li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux (RHEL)</a> (2000): distribución comercial de Red Hat de código abierto y que vende soporte, entrenamiento y otros servicios.</li>
+								<li><a href="https://getfedora.org/">Fedora</a> (2003): otra distribución mantenida por Red Hat y también por el proyecto comunitario Fedora. Se usa para probar y madurar el código de RHEL.</li>
+								<li><a href="https://www.centos.org/">CentOS</a> (2004): distribución libre con licencia GPL compatible con el código fuente de RHEL. Mantenida por una comunidad de voluntarios.</li>
+							</ul>
+						</li>
+					</div>
+				</section>
+				<section id="linux-distros-otras">
+					<h3>"Distros" populares</h3>
+					<div style="text-align:left">
+						<li><a href="https://www.gentoo.org/">Gentoo</a> (2000): compila localmente el código fuente y lo optimiza para el tipo específico de computadora. Es para usuarios experimentados. Mantenida por la Fundación Gentoo.</li>
+						<li><a href="https://www.archlinux.org/">Arch Linux</a> (2002): distribución minimalista, para usuarios experimentados, que utiliza un <a href="https://es.wikipedia.org/wiki/Liberaci%C3%B3n_continua">modelo contínuo de liberación de software</a>. 
+							<ul>
+								<li><a href="https://manjaro.org/">Manjaro Linux</a> (2011): cuenta con interfaz gráfica y es más amigable para el usuario que Arch Linux.</li>
+							</ul>
+						</li>
+					</div>
+				</section>
+				<section id="ubuntu-01">
+					<h3>Ubuntu</h3>
+					<div class="row" >
+						<div class="column" style="width:40%">
+							<div class="row" >
+								<figure>
+									<img src="img/ubuntu-logo.png" alt="Ubuntu Desktop 18.04 LTS" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+								</figure>
+							</div>
+						</div>
+						<div class="column" style="width:60%">
+							<div style="text-align:left">
+								<li>Está basada en la <a href="https://www.debian.org/devel/testing">distribución <em>testing</em> de Debian</a>, por lo que soporta versiones más actualizadas de software y más dispositivos de hardware.</li>
+								<li>Es una buena <a href="https://itsfoss.com/best-linux-beginners/">distribución para principiantes</a>.</li>
+							</div>	
+						</div>
+					</div>			
+				</section>
+				<section id="ubuntu-02">
+					<h3>Ubuntu</h3>
+					<div class="row" >
+						<div class="column" style="width:40%">
+							<div class="row" >
+								<figure>
+									<img src="img/ubuntu-logo.png" alt="Ubuntu Desktop 18.04 LTS" style="border:none;background:none;box-shadow:none;margin: 0px 0px;">
+								</figure>
+							</div>
+						</div>
+						<div class="column" style="width:60%">
+							<div style="text-align:left">
+								<li>Libera una nueva versión estándar cada 6 meses y una con soporte a largo plazo (LTS) cada 2 años.</li>
+								<li>Es una de las <em>distros</em> más populares y cuenta con documentación y soporte muy amplios en canales oficiales y no oficiales.</li>
+							</div>	
+						</div>
+					</div>			
+				</section>
+				<section id="ubuntu-instalacion">
+					<h3>Instalación de Ubuntu Desktop</h3>
+					<div style="text-align:left">
+						<li>Se mostrará como realizar la instalación de <a href="https://www.ubuntu.com/desktop">Ubuntu Desktop</a> en una <a href="https://es.wikipedia.org/wiki/M%C3%A1quina_virtual">máquina virtual</a> de <a href="https://www.virtualbox.org/">VirtualBox</a>. Este enfoque es apropiado para uso personal (ej. pruebas).</li>
+						<li>Es necesario descargar:
+							<ul>
+								<li><a href="https://www.ubuntu.com/download/desktop">Imagen ISO del instalador de Ubuntu Desktop.</a></li>
+								<li><a href="https://www.virtualbox.org/wiki/Downloads">Software de VirtualBox.</a></li>
+							</ul>
+						</li>
+					</div>
+				</section>
+				<section id="linux-cli">
+					<h3>La interfaz de línea de comandos (CLI)</h3>
+					<div style="text-align:left">
+						<li>Permite ingresar comandos a través de líneas de texto.</li>
+						<li>Es más eficiente que las interfaces gráficas, pero menos intuitiva.</li>
+						<li>Los comandos de Linux tienen la sintaxis: <br><strong>comando</strong> <em>opciones archivos</em><br>Por ejemplo:<br>ls -l *.txt</li>
+					</div>
+				</section>
+				<section id="linux-comandos-generalidades">
+					<h3>Generalidades de los comandos de Linux</h3>
+					<div style="text-align:left">
+						<li>Siempre se escriben en <strong>minúscula</strong>. <strong>IMPORTANTE: Linux diferencia las mayúsculas de las minúsculas.</strong></li>
+						<li>Las opciones y los nombres de archivo no son obligatorios en los comandos, pero casi siempre se usan.</li>
+						<li>Las opciones siempre se escriben antes de los nombres de archivos.</li>
+						<li>El comando <strong>man</strong> (i.e. manual) brinda información de otro comando (ej. man ls).</li>
+					</div>
+				</section>
+				<section id="linux-comandos-info">
+					<h3>Comandos: información general</h3>
+					<div style="text-align:left"><small>
+							<strong>whoami</strong>: imprime el nombre del usuario.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ whoami
+								mfvargas
+							</code></pre>				
+			
+							<strong>hostname</strong>: imprime el nombre de la computadora (o "host").
+							<pre><code class="hljs" data-trim contenteditable>
+								$ hostname
+								eira
+							</code></pre>
+
+							<strong>uname</strong>: imprime información sobre el sistema.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ uname -a
+								Linux eira 4.19.0-1-amd64 #1 SMP Debian 4.19.12-1 (2018-12-22) x86_64 GNU/Linux
+							</code></pre>
+
+							<strong>pwd</strong>: imprime el directorio actual.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ pwd
+								/home/mfvargas
+							</code></pre>
+					</small></div>
+				</section>
+				<section id="linux-comandos-archivos-01">
+					<h3>Comandos: manejo de archivos</h3>
+					<div style="text-align:left"><small>
+							<strong>ls</strong>: lista los contenidos de un directorio.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ls
+								Desktop  Documents  Downloads  Music  Pictures  Public  shared  Templates  Videos
+								$ ls -l
+								total 36
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Desktop
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Documents
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Downloads
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Music
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Pictures
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Public
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:31 shared
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Templates
+								drwxr-xr-x 2 mfvargas mfvargas 4096 feb 10 18:00 Videos
+							</code></pre>				
+
+							<strong>touch</strong>: crea un archivo vacío.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ touch archivo01.txt
+								$ touch archivo02.txt
+							</code></pre>				
+
+							Para añadir contenido a un archivo:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ echo "Línea 01 Archivo 01" >> archivo01.txt
+								$ echo "Línea 02 Archivo 01" >> archivo01.txt
+								$ echo "Línea 01 Archivo 02" >> archivo02.txt
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="linux-comandos-archivos-02">
+					<h3>Comandos: manejo de archivos</h3>
+					<div style="text-align:left"><small>
+							<strong>more</strong>: imprime los contenidos de un archivo.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ more archivo01.txt
+								Línea 01 Archivo 01
+								Línea 02 Archivo 01
+							</code></pre>				
+
+							<strong>cat</strong>: concatena los contenidos de varios archivos.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cat archivo01.txt archivo02.txt > archivo03.txt
+								$ more archivo03.txt
+								Línea 01 Archivo 01
+								Línea 02 Archivo 01
+								Línea 01 Archivo 02
+							</code></pre>				
+
+							<strong>wget</strong>: descarga un archivo de Internet.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ wget http://www.textfiles.com/internet/usenet.txt
+							</code></pre>			
+					</small></div>
+				</section>
+				<section id="linux-comandos-archivos-03">
+					<h3>Comandos: manejo de archivos</h3>
+					<div style="text-align:left"><small>
+							<strong>head</strong>: imprime las primeras líneas de un archivo.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ head -20 usenet.txt
+
+										  How to Use USENET Effectively
+
+
+												   Matt Bishop
+								Research Institute for Advanced Computer Science
+												 Mail Stop 230-5
+											NASA Ames Research Center
+											Moffett Field, CA  94035
+							</code></pre>				
+
+							<strong>tail</strong>: imprime las últimas líneas de un archivo.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ tail -50 usenet.txt
+								17. What is the address or phone number of the "foo" company?
+
+									Try the white and  yellow  pages  of  your  phone  directory,
+									first; a sales representative will surely know, and if you're
+									a potential customer they will be  who  you're  looking  for.
+									Phone  books  for  other  cities are usually available in li-
+									braries of any size.  Whoever buys or recommends  things  for
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="linux-comandos-archivos-04">
+					<h3>Comandos: manejo de archivos</h3>
+					<div style="text-align:left"><small>
+							<strong>cp</strong>: copia archivos.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cp archivo03.txt archivo04.txt
+							</code></pre>				
+
+							<strong>rm</strong>: borra archivos.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ rm archivo04.txt
+							</code></pre>	
+
+							<strong>mv</strong>: mueve o renombra archivos.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ mv archivo03.txt otronombre.txt
+							</code></pre>					
+					</small></div>
+				</section>
+				<section id="linux-comandos-directorios">
+					<h3>Comandos: manejo de archivos</h3>
+					<div style="text-align:left"><small>
+							<strong>mkdir</strong>: crea un directorio.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ mkdir micarpeta
+							</code></pre>
+
+							<strong>cd</strong>: se cambia a un directorio.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cd micarpeta
+							</code></pre>	
+
+							cambio al directorio raíz:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cd /
+							</code></pre>	
+
+							cambio al directorio padre:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cd ..
+							</code></pre>				
+
+							cambio al directorio "home" del usuario:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cd
+							</code></pre>			
+					</small></div>
+				</section>
+				<section id="linux-comandos-otros">
+					<h3>Comandos: otros</h3>
+					<div style="text-align:left"><small>
+							<strong>clear</strong>: limpia la pantalla.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ clear
+							</code></pre>
+							<strong>passwd</strong>: cambia la clave del usuario.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ passwd
+							</code></pre>
+							<strong>sudo</strong>: ejecuta un comando como superusuario.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo apt-get install git
+							</code></pre>
+							<strong>apt</strong>: conjunto de comandos para instalar aplicaciones.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo apt-get update
+								$ sudo apt-get htop
+							</code></pre>
+							<strong>ssh</strong>: conexión segura a otro servidor.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ssh mfvargas@172.21.3.61
+							</code></pre>
+					</small></div>
+				</section>
+				<section id="linux-instalacion-aplicaciones-01">
+					<h3>Instalación de aplicaciones</h3>
+					<div style="text-align:left"><small>
+							<strong>GDAL/OGR</strong>
+							<br><br>
+							Se actualizan los repositorios y se instalan las aplicaciones:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo apt-get update
+								$ sudo apt-get install gdal-bin
+							</code></pre>
+					</small></div>
+				</section>
+				<section id="linux-instalacion-aplicaciones-02">
+					<h3>Instalación de aplicaciones</h3>
+					<div style="text-align:left"><small>
+							<strong>R </strong><a href="https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04">(https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-18-04)</a>
+							<br><br>
+							Se añade la llave y el repositorio:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+								$ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+							</code></pre>
+							<br>
+							Se actualizan los repositorios y se instalan las aplicaciones:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo apt-get update
+								$ sudo apt install r-base
+							</code></pre>
+							<br>
+							Ejecución de R e instalación de paquetes:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo -i R
+								> install.packages("maptools")
+								> install.packages("sp")
+								> install.packages("randomForest")
+								> install.packages("raster")
+								> install.packages("rgdal")
+								> install.packages("RSAGA")
+							</code></pre>
+					</small></div>
+				</section>
+				<section id="linux-instalacion-aplicaciones-03">
+					<h3>Instalación de aplicaciones</h3>
+					<div style="text-align:left"><small>
+							<strong>QGIS </strong><a href="https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu">(https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu)</a>
+							<br><br>
+							Se agrega el repositorio a la lista de repositorios del sistema operativo:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ sudo nano /etc/apt/sources.list
+							</code></pre>
+							Debe añadirse la línea:
+							<pre><code class="hljs" data-trim contenteditable>
+								deb https://qgis.org/ubuntu bionic main
+							</code></pre>
+							(En nano, se guarda el archivo con Ctrl-X)
+							<br>
+							Se descargan las llaves, se actualizan los repositorios y se instalan las aplicaciones:
+							<pre><code class="hljs" data-trim contenteditable>
+								$ wget -O - https://qgis.org/downloads/qgis-2017.gpg.key | gpg --import
+								$ gpg --fingerprint CAEB3DC3BDF7FB45
+								$ gpg --export --armor CAEB3DC3BDF7FB45 | sudo apt-key add -
+								$ sudo apt-get update
+								$ sudo apt-get install qgis python-qgis qgis-plugin-grass
+							</code></pre>
+					</small></div>
+				</section>
+				<section id="gdalogr">
+					<h3>Ejemplo de uso de la línea de comandos: GDAL/OGR</h3>
+					<div style="text-align:left">
+						<li>La <a href="http://www.gdal.org/">GeoSpatial Data Abstraction Library (GDAL)</a>, también llamada GDAL/OGR, es una biblioteca de código abierto para la lectura y escritura de datos raster (GDAL) y vectoriales (OGR).</li>
+						<li>Es un proyecto oficial de la <a href="https://www.osgeo.org/">Open Source Geospatial Foundation (OSGeo).</a>
+						<li>Es utilizada por muchas aplicaciones geoespaciales (ej. QGIS, GRASS GIS, gvSIG) y puede accederse desde varios lenguajes de programación (ej. Python, R, Java).</li>
+					</div>
+				</section>
+				<section id="ogrinfo-formats">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo --formats</strong>: lista los formatos vectoriales soportados.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo --formats
+								Supported Formats:
+								  PCIDSK -raster,vector- (rw+v): PCIDSK Database File
+								  netCDF -raster,vector- (rw+s): Network Common Data Format
+								  JP2OpenJPEG -raster,vector- (rwv): JPEG-2000 driver based on OpenJPEG library
+								  PDF -raster,vector- (rw+vs): Geospatial PDF
+								  MBTiles -raster,vector- (rw+v): MBTiles
+								  EEDA -vector- (ro): Earth Engine Data API
+								  ESRI Shapefile -vector- (rw+v): ESRI Shapefile
+								  MapInfo File -vector- (rw+v): MapInfo File
+								  UK .NTF -vector- (rov): UK .NTF
+								  OGR_SDTS -vector- (rov): SDTS
+								  S57 -vector- (rw+v): IHO S-57 (ENC)
+								  DGN -vector- (rw+v): Microstation DGN
+								  OGR_VRT -vector- (rov): VRT - Virtual Datasource
+								  REC -vector- (ro): EPIInfo .REC 
+								  Memory -vector- (rw+): Memory
+								  BNA -vector- (rw+v): Atlas BNA
+								  CSV -vector- (rw+v): Comma Separated Value (.csv)
+								  NAS -vector- (rov): NAS - ALKIS
+								  GML -vector- (rw+v): Geography Markup Language (GML)
+								  GPX -vector- (rw+v): GPX
+								  LIBKML -vector- (rw+v): Keyhole Markup Language (LIBKML)
+								  KML -vector- (rw+v): Keyhole Markup Language (KML)
+								  GeoJSON -vector- (rw+v): GeoJSON
+								  ...
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="ogrinfo-so-al">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -al -so</strong>: resume la información de una fuente de datos vectorial.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ cd
+								$ mkdir ogr-pruebas
+								$ cd ogr-pruebas
+								$ wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+								$ unzip ne_10m_admin_0_countries.zip
+							</code></pre>	
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo -al -so ne_10m_admin_0_countries.shp
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: ne_10m_admin_0_countries
+								Metadata:
+								  DBF_DATE_LAST_UPDATE=2018-05-21
+								Geometry: Polygon
+								Feature Count: 255
+								Extent: (-180.000000, -90.000000) - (180.000000, 83.634101)
+								Layer SRS WKT:
+								GEOGCS["WGS 84",
+									DATUM["WGS_1984",
+										SPHEROID["WGS 84",6378137,298.257223563,
+											AUTHORITY["EPSG","7030"]],
+										AUTHORITY["EPSG","6326"]],
+									PRIMEM["Greenwich",0,
+										AUTHORITY["EPSG","8901"]],
+									UNIT["degree",0.0174532925199433,
+										AUTHORITY["EPSG","9122"]],
+									AUTHORITY["EPSG","4326"]]
+								featurecla: String (15.0)
+								scalerank: Integer (1.0)...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogrinfo-sql-1">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -dialect sqlite -sql</strong>: ejecuta una consulta en <a href="https://es.wikipedia.org/wiki/SQL">SQL</a> según el dialecto de <a href="https://www.sqlite.org/">SQLite</a>.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo ne_10m_admin_0_countries.shp -dialect sqlite \
+								-sql "SELECT NAME_ES FROM ne_10m_admin_0_countries"
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: SELECT
+								Geometry: None
+								Feature Count: 255
+								Layer SRS WKT:
+								(unknown)
+								NAME_ES: String (0.0)
+								OGRFeature(SELECT):0
+								  NAME_ES (String) = Indonesia
+
+								OGRFeature(SELECT):1
+								  NAME_ES (String) = Malasia
+
+								OGRFeature(SELECT):2
+								  NAME_ES (String) = Chile...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogrinfo-sql-2">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -dialect sqlite -sql</strong>: ejecuta una consulta en <a href="https://es.wikipedia.org/wiki/SQL">SQL</a> según el dialecto de <a href="https://www.sqlite.org/">SQLite</a>.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo ne_10m_admin_0_countries.shp -dialect sqlite \
+								-sql "SELECT NAME_ES, CONTINENT FROM ne_10m_admin_0_countries"
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: SELECT
+								Geometry: None
+								Feature Count: 255
+								Layer SRS WKT:
+								(unknown)
+								NAME_ES: String (0.0)
+								CONTINENT: String (0.0)
+								OGRFeature(SELECT):0
+								  NAME_ES (String) = Indonesia
+								  CONTINENT (String) = Asia
+
+								OGRFeature(SELECT):1
+								  NAME_ES (String) = Malasia
+								  CONTINENT (String) = Asia
+
+								OGRFeature(SELECT):2
+								  NAME_ES (String) = Chile
+								  CONTINENT (String) = South America...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogrinfo-sql-3">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -dialect sqlite -sql</strong>: ejecuta una consulta en <a href="https://es.wikipedia.org/wiki/SQL">SQL</a> según el dialecto de <a href="https://www.sqlite.org/">SQLite</a>.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo ne_10m_admin_0_countries.shp -dialect sqlite \
+								-sql "SELECT NAME_ES, CONTINENT FROM ne_10m_admin_0_countries WHERE CONTINENT='ASIA'"
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: SELECT
+								Geometry: None
+								Feature Count: 59
+								Layer SRS WKT:
+								(unknown)
+								NAME_ES: String (0.0)
+								CONTINENT: String (0.0)
+								OGRFeature(SELECT):0
+								  NAME_ES (String) = Indonesia
+								  CONTINENT (String) = Asia
+
+								OGRFeature(SELECT):1
+								  NAME_ES (String) = Malasia
+								  CONTINENT (String) = Asia
+
+								OGRFeature(SELECT):2
+								  NAME_ES (String) = Dekelia
+								  CONTINENT (String) = Asia...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogrinfo-sql-4">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -dialect sqlite -sql</strong>: ejecuta una consulta en <a href="https://es.wikipedia.org/wiki/SQL">SQL</a> según el dialecto de <a href="https://www.sqlite.org/">SQLite</a>.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo ne_10m_admin_0_countries.shp -dialect sqlite \
+								-sql "SELECT NAME_ES, POP_EST, CONTINENT FROM ne_10m_admin_0_countries WHERE CONTINENT='ASIA' AND POP_EST >= 100000000"
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: SELECT
+								Geometry: None
+								Feature Count: 7
+								Layer SRS WKT:
+								(unknown)
+								NAME_ES: String (0.0)
+								POP_EST: Integer64 (0.0)
+								CONTINENT: String (0.0)
+								OGRFeature(SELECT):0
+								  NAME_ES (String) = Indonesia
+								  POP_EST (Integer64) = 260580739
+								  CONTINENT (String) = Asia
+
+								OGRFeature(SELECT):1
+								  NAME_ES (String) = India
+								  POP_EST (Integer64) = 1281935911
+								  CONTINENT (String) = Asia...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogrinfo-sql-5">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -dialect sqlite -sql</strong>: ejecuta una consulta en <a href="https://es.wikipedia.org/wiki/SQL">SQL</a> según el dialecto de <a href="https://www.sqlite.org/">SQLite</a>.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo ne_10m_admin_0_countries.shp -dialect sqlite \
+								-sql "SELECT NAME_ES, POP_EST, CONTINENT FROM ne_10m_admin_0_countries WHERE CONTINENT='ASIA' AND POP_EST >= 100000000 ORDER BY NAME_ES"
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: SELECT
+								Geometry: None
+								Feature Count: 7
+								Layer SRS WKT:
+								(unknown)
+								NAME_ES: String (0.0)
+								POP_EST: Integer64 (0.0)
+								CONTINENT: String (0.0)
+								OGRFeature(SELECT):0
+								  NAME_ES (String) = Bangladés
+								  POP_EST (Integer64) = 157826578
+								  CONTINENT (String) = Asia
+
+								OGRFeature(SELECT):1
+								  NAME_ES (String) = Filipinas
+								  POP_EST (Integer64) = 104256076
+								  CONTINENT (String) = Asia...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogrinfo-sql-6">
+					<h3>ogrinfo</h3>
+					<div style="text-align:left"><small>
+							<strong>ogrinfo -dialect sqlite -sql</strong>: ejecuta una consulta en <a href="https://es.wikipedia.org/wiki/SQL">SQL</a> según el dialecto de <a href="https://www.sqlite.org/">SQLite</a>.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo ne_10m_admin_0_countries.shp -dialect sqlite \
+								-sql "SELECT CONTINENT, Sum(POP_EST) FROM ne_10m_admin_0_countries GROUP BY CONTINENT"
+								INFO: Open of `ne_10m_admin_0_countries.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: SELECT
+								Geometry: None
+								Feature Count: 8
+								Layer SRS WKT:
+								(unknown)
+								CONTINENT: String (0.0)
+								Sum(POP_EST): Integer (0.0)
+								OGRFeature(SELECT):0
+								  CONTINENT (String) = Africa
+								  Sum(POP_EST) (Integer) = 1220746242
+
+								OGRFeature(SELECT):1
+								  CONTINENT (String) = Antarctica
+								  Sum(POP_EST) (Integer) = 4050
+
+								OGRFeature(SELECT):2
+								  CONTINENT (String) = Asia
+								  Sum(POP_EST) (Integer) = 2147483647
+
+								OGRFeature(SELECT):3
+								  CONTINENT (String) = Europe
+								  Sum(POP_EST) (Integer) = 747365363...
+							</code></pre>							
+					</small></div>
+				</section>
+				<section id="ogr2ogr-t_srs">
+					<h3>ogr2ogr</h3>
+					<div style="text-align:left"><small>
+							<strong>ogr2ogr -t_srs</strong>: transforma una fuente de datos a otro SRS.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogr2ogr -t_srs EPSG:5367 ne_10m_admin_0_countries_crtm05.shp ne_10m_admin_0_countries.shp
+							</code></pre>			
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo -so -al ne_10m_admin_0_countries_crtm05.shp
+								INFO: Open of `ne_10m_admin_0_countries_crtm05.shp'
+									  using driver `ESRI Shapefile' successful.
+
+								Layer name: ne_10m_admin_0_countries_crtm05
+								Metadata:
+								  DBF_DATE_LAST_UPDATE=2019-02-27
+								Geometry: Polygon
+								Feature Count: 0
+								Extent: (0.000000, 0.000000) - (0.000000, 0.000000)
+								Layer SRS WKT:
+								PROJCS["CR05 / CRTM05",
+									GEOGCS["CR05",
+										DATUM["Costa_Rica_2005",
+											SPHEROID["WGS 84",6378137,298.257223563,
+												AUTHORITY["EPSG","7030"]],
+											TOWGS84[0,0,0,0,0,0,0],
+											AUTHORITY["EPSG","1065"]],
+										PRIMEM["Greenwich",0,
+											AUTHORITY["EPSG","8901"]],
+										UNIT["degree",0.0174532925199433,
+											AUTHORITY["EPSG","9122"]],
+										AUTHORITY["EPSG","5365"]],
+									PROJECTION["Transverse_Mercator"],
+									PARAMETER["latitude_of_origin",0],
+									PARAMETER["central_meridian",-84],
+									PARAMETER["scale_factor",0.9999],
+									PARAMETER["false_easting",500000],
+									PARAMETER["false_northing",0],
+									UNIT["metre",1,
+										AUTHORITY["EPSG","9001"]],
+									AUTHORITY["EPSG","5367"]]...
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="ogr2ogr-f-1">
+					<h3>ogr2ogr</h3>
+					<div style="text-align:left"><small>
+							<strong>ogr2ogr -f</strong>: transforma una fuente de datos a otro formato vectorial.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogr2ogr -f KML ne_10m_admin_0_countries.kml ne_10m_admin_0_countries.shp
+							</code></pre>			
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo -so -al ne_10m_admin_0_countries.kml
+								INFO: Open of `ne_10m_admin_0_countries.kml'
+									  using driver `LIBKML' successful.
+
+								Layer name: ne_10m_admin_0_countries
+								Geometry: Unknown (any)
+								Feature Count: 255
+								Extent: (-180.000000, -90.000000) - (180.000000, 83.634101)
+								Layer SRS WKT:
+								GEOGCS["WGS 84",
+									DATUM["WGS_1984",
+										SPHEROID["WGS 84",6378137,298.257223563,
+											AUTHORITY["EPSG","7030"]],
+										AUTHORITY["EPSG","6326"]],
+									PRIMEM["Greenwich",0,
+										AUTHORITY["EPSG","8901"]],
+									UNIT["degree",0.0174532925199433,
+										AUTHORITY["EPSG","9122"]],
+									AUTHORITY["EPSG","4326"]]
+								Name: String (0.0)
+								description: String (0.0)...
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="ogr2ogr-f-2">
+					<h3>ogr2ogr</h3>
+					<div style="text-align:left"><small>
+							<strong>ogr2ogr -f</strong>: transforma una fuente de datos a otro formato vectorial.
+							<pre><code class="hljs" data-trim contenteditable>
+								# Registros de presencia de mamíferos en Costa Rica
+								$ wget http://api.gbif.org/v1/occurrence/download/request/0046867-181108115102211.zip
+								$ unzip 0046867-181108115102211.zip
+								$ mv 0046867-181108115102211.csv mamiferos-cr.csv
+							</code></pre>
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogr2ogr -oo X_POSSIBLE_NAMES=decimalLongitude* -oo Y_POSSIBLE_NAMES=decimalLatitude* \
+								-f "ESRI Shapefile" \
+								-s_srs EPSG:4326 -t_srs EPSG:4326 \
+								mamiferos-cr.shp \
+								CSV:mamiferos-cr.csv
+							</code></pre>			
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo -so -al mamiferos-cr.shp
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="ogr2ogr-sql-1">
+					<h3>ogr2ogr</h3>
+					<div style="text-align:left"><small>
+							<strong>ogr2ogr -dialect sqlite -sql</strong>: selecciona registros mediante una consulta SQL.
+							<pre><code class="hljs" data-trim contenteditable>
+								# Shapefile de provincias/estados
+								$ wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_1_states_provinces.zip
+								$ unzip ne_10m_admin_1_states_provinces.zip
+							</code></pre>
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogr2ogr costa-rica.shp ne_10m_admin_1_states_provinces.shp -dialect sqlite \
+								-sql "SELECT * FROM ne_10m_admin_1_states_provinces WHERE admin='Costa Rica'"
+							</code></pre>			
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo -so -al costa-rica.shp
+							</code></pre>				
+					</small></div>
+				</section>
+				<section id="ogr2ogr-sql-2">
+					<h3>ogr2ogr</h3>
+					<div style="text-align:left"><small>
+							<strong>ogr2ogr -dialect sqlite -sql</strong>: selecciona registros mediante una consulta SQL geoespacial.
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogr2ogr mamiferos-heredia.shp ne_10m_admin_1_states_provinces.shp -dialect sqlite \
+								-sql "SELECT m.* FROM ne_10m_admin_1_states_provinces p, 'mamiferos-cr.shp'.mamiferos-cr m WHERE ST_Contains(p.geometry, m.geometry) AND p.name = 'HEREDIA'"
+							</code></pre>			
+							<pre><code class="hljs" data-trim contenteditable>
+								$ ogrinfo -so -al costa-rica.shp
+							</code></pre>				
+					</small></div>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
