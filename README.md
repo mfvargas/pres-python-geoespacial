@@ -1,1 +1,1 @@
-Curso introductorio al sistema operativo Linux: https://mfvargas.github.io/curso-intro-linux/
+Diapositivas del curso introductorio al lenguaje de programación Python, con un énfasis en el procesamiento de datos geoespaciales: 
